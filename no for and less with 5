@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+int main() {
+  int i,j,num,sum=0,k=0,e=0,f=0,higest,lowest;
+  char score[4];
+  j=sizeof(score)/sizeof(score[1])+1;
+ 
+  for(i=0;i<j;i++)
+  {
+    cout<<"請輸入第"<<i+1<<"科成績：";
+    cin>>num;
+    score[i]=(char)num;
+    num=(int)num;
+    sum=sum+num;
+    if(num>=60&&num<=100)
+    {  e++;   }else 
+    if(num>=0&&num<60)
+    {  f++;   }
+    else
+    {
+        cout<<"成績輸入錯誤\n";
+        return 0;;
+    } 
+  }
+
+
+  higest=(int)score[0];
+  lowest=(int)score[0];
+  for(i=0;i<j;i++)
+  {
+    if((int)score[i]>higest)
+    {
+        higest=(int)score[i];
+    }
+    if((int)score[i]<lowest)
+    {
+        lowest=(int)score[i];
+    }
+  }
+
+
+  cout<<"總分為："<<sum<<"\n";
+  k=sum/j;
+  cout<<"平均數為:"<<k<<"\n";
+  cout<<"合格的科目有"<<e<<"科\n";
+  cout<<"不合格的科目有"<<f<<"科\n";
+  if(k>=60)
+  {
+    cout<<"測驗合格\n";
+  }else{    cout<<"測驗不合格\n"; }  
+  cout<<"最大值為："<<higest<<"\n";
+  cout<<"最小值為："<<lowest<<"\n";
+}
